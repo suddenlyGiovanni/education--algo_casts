@@ -8,6 +8,12 @@
 // chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
-function chunk(array, size) {}
-
-module.exports = chunk
+export default function chunk<T>(
+  array: readonly T[],
+  size: number
+): readonly T[][] {
+  const chunks = []
+  const _array = [...array]
+  while (_array.length > 0) chunks.push(_array.splice(0, size))
+  return chunks
+}
