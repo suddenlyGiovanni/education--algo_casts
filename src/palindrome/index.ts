@@ -7,6 +7,20 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+export function palindromeWithReversed(str: string): boolean {
+  return (
+    str ===
+    str
+      .split('')
+      .reverse()
+      .join('')
+  )
+}
 
-module.exports = palindrome
+export function palindromeWithEvery(str: string): boolean {
+  return str
+    .split('')
+    .every((chr, idx, arr): boolean => chr === arr[arr.length - 1 - idx])
+}
+
+export default palindromeWithEvery
