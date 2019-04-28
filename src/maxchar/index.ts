@@ -13,9 +13,27 @@ export function strToChrMap(str: string): { [key: string]: number } {
   return obj //?
 }
 
-export default function maxChar(str: string): string {
+export function maxChar(str: string): string {
   const map = strToChrMap(str) //?
   const arr = Object.entries(map).sort((a, b) => b[1] - a[1]) //?
   const key = arr[0][0] //?
   return key
 }
+
+export function maxChar2(str: string): string {
+  let max = 0
+  let maxChr = ''
+  const map = strToChrMap(str) //?
+
+  for (const chr in map) {
+    const key = chr //?
+    const val = map[chr] //?
+    if (val > max) {
+      max = val
+      maxChr = key
+    }
+  }
+  return maxChr
+}
+
+export default maxChar
